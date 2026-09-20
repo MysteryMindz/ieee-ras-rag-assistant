@@ -4,7 +4,7 @@ RAS Guide is a public-source retrieval-augmented generation (RAG) assistant for 
 
 ## Live application
 
-**https://ras-guide-vit-chennai.tamizhgamer2020.chatgpt.site**
+**https://mysterymindz.github.io/ieee-ras-rag-assistant/**
 
 ## What makes this RAG
 
