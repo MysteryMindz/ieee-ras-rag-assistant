@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A source-grounded assistant for IEEE Robotics and Automation Society and IEEE RAS at VIT Chennai.">
+  <meta name="theme-color" content="#061d2b">
+  <title>RAS Guide | IEEE RAS Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061d2b'/%3E%3Cpath d='M17 44V20h14c8 0 13 4 13 11 0 5-3 8-7 10l10 3' fill='none' stroke='%232bd9c5' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="RAS Guide home">
+      <span class="brand-mark" aria-hidden="true">R</span>
+      <span><strong>RAS Guide</strong><small>Source-grounded assistant</small></span>
+    </a>
+    <div class="status"><span class="status-dot"></span><span id="model-status">Retrieval ready</span></div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <div>
+        <p class="eyebrow">IEEE ROBOTICS &amp; AUTOMATION SOCIETY</p>
+        <h1 id="title">Ask. Retrieve.<br><span>Verify.</span></h1>
+      </div>
+      <p class="intro-copy">Explore IEEE RAS and the VIT Chennai student chapter through answers grounded in public sources. Every response shows what was retrieved and where it came from.</p>
+    </section>
+
+    <section class="workspace" aria-label="Assistant workspace">
+      <div class="chat-panel">
+        <div class="panel-heading">
+          <div><span class="step">01</span><h2>Ask RAS Guide</h2></div>
+          <button class="text-button" id="clear-button" type="button">Clear</button>
+        </div>
+
+        <div class="conversation" id="conversation" aria-live="polite">
+          <article class="message assistant welcome-message">
+            <div class="avatar">RG</div>
+            <div class="bubble">
+              <p>I can help with the RAS mission, membership, students, publications, conferences, standards, and public information about IEEE RAS at VIT Chennai.</p>
+              <p class="muted">Try a prompt below or ask your own question.</p>
+            </div>
+          </article>
+          <div class="suggestions" id="suggestions">
+            <button data-question="What is the mission of IEEE RAS?">What is the RAS mission?</button>
+            <button data-question="What does IEEE RAS offer students?">What does RAS offer students?</button>
+            <button data-question="What is known about IEEE RAS at VIT Chennai?">RAS at VIT Chennai</button>
+            <button data-question="Which publications does IEEE RAS cover?">RAS publications</button>
+          </div>
+        </div>
+
+        <form class="composer" id="ask-form">
+          <label class="sr-only" for="question">Ask a question about IEEE RAS</label>
+          <textarea id="question" name="question" rows="1" maxlength="500" placeholder="Ask about IEEE RAS…" required></textarea>
+          <button id="ask-button" type="submit" aria-label="Send question">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <p class="composer-note">Public-source assistant · Check the cited pages for time-sensitive details.</p>
+      </div>
+
+      <aside class="evidence-panel" aria-label="Retrieved evidence">
+        <div class="panel-heading">
+          <div><span class="step">02</span><h2>Retrieved evidence</h2></div>
+          <span class="count" id="source-count">0 sources</span>
+        </div>
+        <div class="evidence-empty" id="evidence-empty">
+          <div class="radar" aria-hidden="true"><span></span><i></i></div>
+          <p>Relevant source passages will appear here after you ask a question.</p>
+        </div>
+        <div class="evidence-list" id="evidence-list"></div>
+        <div class="pipeline-card">
+          <p class="eyebrow">HOW IT WORKS</p>
+          <div class="pipeline"><span>Question</span><b>→</b><span>Retrieve</span><b>→</b><span>Generate</span><b>→</b><span>Cite</span></div>
+          <p>The answer is generated only from the top matching passages. If support is weak, the assistant says so.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="source-note">
+      <p><strong>Knowledge base</strong> <span id="knowledge-count">—</span> curated passages from official IEEE RAS pages and public VIT Chennai chapter material.</p>
+      <p>VIT Chennai pages with older dates are marked historical.</p>
+    </section>
+  </main>
+
+  <footer><span>Independent student project</span><span>Information retrieved from public sources · Updated September 2026</span></footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
